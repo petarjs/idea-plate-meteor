@@ -8,7 +8,6 @@ Ideas.helpers({
     return this.owner ? Meteor.users.findOne({ _id: this.owner }) : {};
   },
   ideaCategory() {
-    console.log(this.category ? Categories.findOne({ _id: this.category }) : {})
     return this.category ? Categories.findOne({ _id: this.category }) : {};
   }
 })
