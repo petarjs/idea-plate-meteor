@@ -1,0 +1,7 @@
+<div class="find">
+  <h2>Find Ideas</h2>
+  <input type="text" placeholder="Search for anything" ng-model="find.q" class="search">
+  <div class="ideas">
+    <idea ng-repeat="idea in find.ideas | filter: find.q" idea="idea"></idea>
+  </div>
+</div>

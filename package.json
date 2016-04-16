@@ -1,0 +1,14 @@
+{
+  "name": "idea-plate-meteor",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-meteor": "^1.3.10",
+    "angular-ui-router": "^0.2.18",
+    "lodash": "^4.11.1",
+    "meteor-node-stubs": "~0.2.0"
+  }
+}

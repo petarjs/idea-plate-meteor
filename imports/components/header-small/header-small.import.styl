@@ -1,0 +1,22 @@
+.header-small
+  text-align center
+  background url('/images/header-background.png'), color-light
+  height auto
+  background-size cover
+
+  @media screen and (min-height: 1024px)
+    height auto
+    padding-bottom 140px
+    background-position 0 80%
+
+  .logo
+    background url('/images/logo.png') no-repeat
+    background-size 100% 100%
+    display inline-block
+    width 446px
+    height 136px
+    margin-top 20px
+
+    +mobile()
+      width 300px
+      height 95px

@@ -1,0 +1,6 @@
+<div class="idea">
+  <button ng-if="idea.idea.ideaOwner()._id === $root.currentUser._id" ng-click="idea.removeIdea()">Delete</button>
+  <img ng-src="{{ idea.idea.image }}">
+  <strong class="title">{{ idea.idea.title }}</strong>
+  <em>By {{ idea.idea.ideaOwner().emails[0].address }}</em>
+</div>

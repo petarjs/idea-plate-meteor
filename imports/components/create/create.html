@@ -1,0 +1,15 @@
+<h3>Create your Idea</h3>
+<div class="idea">
+  <div class="background-top"></div>
+  <form ng-submit="create.createIdea(create.idea)" class="idea-create-form">
+    
+    <image-upload></image-upload>
+
+    <div class="fields">
+      <input class="title" type="text" ng-model="create.idea.title" placeholder="Title">
+      <textarea class="description" rows="5" ng-model="create.idea.description" placeholder="Description"></textarea>
+    </div>
+
+    <button class="create">Create</button>
+  </form>
+</div>

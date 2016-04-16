@@ -1,0 +1,50 @@
+.header
+  text-align center
+  background url('/images/header-background.png'), color-light
+  height 100vh
+  background-size cover
+
+  @media screen and (min-height: 1024px)
+    height auto
+    padding-bottom 140px
+    background-position 0 80%
+
+  .logo
+    background url('/images/logo.png') no-repeat
+    background-size 100% 100%
+    display inline-block
+    width 446px
+    height 136px
+    margin-top 50px
+
+    +mobile()
+      width 300px
+      height 95px
+
+  .tagline
+    font-size 48px
+    margin-top 60px
+    line-height 1.5
+
+    +mobile()
+      font-size 36px
+
+    .first-line
+      font-weight 100
+    .second-line
+      font-weight 600
+
+  .button.button-explore
+    margin-top 80px
+
+    +mobile()
+      margin-top 50px
+
+  .button-explore + .subtext
+    margin-top 15px
+    a
+      color: color-secondary
+      font-size 22px
+      &:hover
+        text-decoration underline
+

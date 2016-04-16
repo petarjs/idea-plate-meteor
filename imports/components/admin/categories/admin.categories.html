@@ -1,0 +1,43 @@
+<div class="admin-categories">
+  <div class="create">
+    <h3>Manage Categories</h3>
+
+    <form ng-submit="adminCategories.createCategory(adminCategories.category)">
+      
+      <label>
+        Name
+        <input type="text" ng-model="adminCategories.category.name">
+      </label>
+      
+      <label>
+        Description
+        <input type="text" ng-model="adminCategories.category.description">
+      </label>
+
+      <button>Create</button>
+    </form>
+
+    <div>
+      <category ng-repeat="category in adminCategories.categories" category="category"></category>
+    </div>
+  </div>
+
+  <div class="current">
+    <form ng-if="adminCategories.selectedCategory" ng-submit="adminCategories.saveCategory(adminCategories.selectedCategory)">
+      Edit
+      <br>
+
+      <label>
+        Name:
+        <input type="text" ng-model="adminCategories.selectedCategory.name">
+      </label>
+
+      <label>
+        Description:
+        <input type="text" ng-model="adminCategories.selectedCategory.description">
+      </label>
+
+      <button>Save</button>
+    </form>
+  </div>
+</div>
