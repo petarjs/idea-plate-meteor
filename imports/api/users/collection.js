@@ -7,6 +7,10 @@ Meteor.users.helpers({
   }
 });
 
+Users.before.insert(function (userId, doc) {
+  doc.createdAt = Date.now();
+});
+
 Users.allow({
   insert(userId, user) {
     return userId && user._id === userId || Meteor.user().isAdmin;

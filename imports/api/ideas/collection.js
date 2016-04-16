@@ -12,6 +12,11 @@ Ideas.helpers({
   }
 })
 
+Ideas.before.insert(function (userId, doc) {
+  doc.createdAt = Date.now();
+  doc.owner = Meteor.userId();
+});
+
 Ideas.allow({
   insert(userId, idea) {
     return userId && idea.owner === userId;
