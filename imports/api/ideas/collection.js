@@ -28,3 +28,13 @@ Ideas.allow({
     return userId && idea.owner === userId;
   }
 });
+
+const IdeaSchema = new SimpleSchema({
+  title: {
+    type: String,
+    label: 'Title',
+    optional: false
+  }
+});
+
+Ideas.attachSchema(IdeaSchema);
