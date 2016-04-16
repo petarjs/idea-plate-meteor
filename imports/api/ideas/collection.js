@@ -34,6 +34,21 @@ const IdeaSchema = new SimpleSchema({
     type: String,
     label: 'Title',
     optional: false
+  },
+  description: {
+    type: String,
+    label: 'Description',
+    optional: false
+  },
+  category: {
+    type: String,
+    label: 'Category',
+    optional: false
+  },
+  image: {
+    type: String,
+    label: 'Image',
+    optional: false
   }
 });
 

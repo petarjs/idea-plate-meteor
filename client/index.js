@@ -54,6 +54,8 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
 
 function run($rootScope, $state) {
   'ngInject';
+
+  MDSnackbars.init();
   
   $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
       if (error === 'AUTH_REQUIRED' || error === 'ADMIN_REQUIRED') {

@@ -22,8 +22,17 @@ export class CreateController {
 
   createIdea(idea) {
     console.log(this.idea);
-    Meteor.call('idea:add', this.idea);
-    this.idea = {};
+    Meteor.call('idea:add', this.idea, (err, data) => {
+      if(err) {
+        MDSnackbars.show({
+          text: err.reason,
+          animation: 'slideup',
+          toast: true,
+          align: 'right'
+        });
+      }
+      this.idea = {};
+    });
   }
 
   setIdeaImage(base64) {
