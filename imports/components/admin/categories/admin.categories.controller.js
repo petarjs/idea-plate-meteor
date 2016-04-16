@@ -26,7 +26,7 @@ export class AdminCategoriesController {
   }
 
   saveCategory(category) {
-    Meteor.call('category:update', category._id, _.omit(category, 'id', '$$hashKey'));
+    Meteor.call('category:update', category._id, _.omit(category, '_id', '$$hashKey'));
   }
 
   onCategorySelected(ev, category) {

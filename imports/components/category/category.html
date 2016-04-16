@@ -1,5 +1,6 @@
 <div class="category" ng-click="category.onSelected()">
   <button ng-click="category.removeCategory(category.category)">delete</button>
+  <show-color color="category.category.color"></show-color>
   <strong class="name">{{ category.category.name }}</strong>
   -
   <span>{{ category.category.description }}</span>

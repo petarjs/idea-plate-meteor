@@ -13,6 +13,8 @@ import { name as Category } from '../imports/components/category/category';
 import { name as User } from '../imports/components/user/user';
 import { name as HeaderSmall } from '../imports/components/header-small/header-small';
 import { name as ImageUpload } from '../imports/components/image-upload/image-upload';
+import { name as ColorPicker } from '../imports/components/color-picker/color-picker';
+import { name as ShowColor } from '../imports/components/show-color/show-color';
 
 import { name as Admin } from '../imports/components/admin/admin';
 import { name as AdminCategories } from '../imports/components/admin/categories/admin.categories';
@@ -37,6 +39,8 @@ angular
     User,
     HeaderSmall,
     ImageUpload,
+    ColorPicker,
+    ShowColor,
 
     Admin,
     AdminCategories,
