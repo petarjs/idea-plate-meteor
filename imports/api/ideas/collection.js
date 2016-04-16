@@ -12,6 +12,11 @@ Ideas.helpers({
   }
 })
 
+Ideas.before.insert(function (userId, doc) {
+  doc.createdAt = Date.now();
+  doc.owner = Meteor.userId();
+});
+
 Ideas.allow({
   insert(userId, idea) {
     return userId && idea.owner === userId;
@@ -23,3 +28,28 @@ Ideas.allow({
     return userId && idea.owner === userId;
   }
 });
+
+const IdeaSchema = new SimpleSchema({
+  title: {
+    type: String,
+    label: 'Title',
+    optional: false
+  },
+  description: {
+    type: String,
+    label: 'Description',
+    optional: false
+  },
+  category: {
+    type: String,
+    label: 'Category',
+    optional: false
+  },
+  image: {
+    type: String,
+    label: 'Image',
+    optional: false
+  }
+});
+
+Ideas.attachSchema(IdeaSchema);

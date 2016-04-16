@@ -2,6 +2,10 @@ import { Mongo } from 'meteor/mongo';
 
 export const Categories = new Mongo.Collection('categories');
 
+Categories.before.insert(function (userId, doc) {
+  doc.createdAt = Date.now();
+});
+
 Categories.allow({
   insert(userId, category) {
     return userId && category.owner === userId;

@@ -22,3 +22,6 @@ erasaur:meteor-lodash
 accounts-password
 dotansimha:accounts-ui-angular
 dburles:collection-helpers
+matb33:collection-hooks
+aldeed:collection2
+255kb:md-snackbars

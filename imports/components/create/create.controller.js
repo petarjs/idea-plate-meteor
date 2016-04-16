@@ -9,6 +9,7 @@ export class CreateController {
     console.log('create')
 
     this.offImageChanged = $rootScope.$on('create-idea:image:changed', ($ev, base64) => this.setIdeaImage(base64));
+    this.idea = {};
 
     $reactive(this).attach($scope);
     this.subscribe('categories');
@@ -20,11 +21,18 @@ export class CreateController {
   }
 
   createIdea(idea) {
-    this.idea.owner = Meteor.userId();
-    this.createdAt = Date.now();
     console.log(this.idea);
-    Meteor.call('idea:add', this.idea);
-    this.idea = {};
+    Meteor.call('idea:add', this.idea, (err, data) => {
+      if(err) {
+        MDSnackbars.show({
+          text: err.reason,
+          animation: 'slideup',
+          toast: true,
+          align: 'right'
+        });
+      }
+      this.idea = {};
+    });
   }
 
   setIdeaImage(base64) {
