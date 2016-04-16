@@ -7,6 +7,11 @@ color-main = #F8E71C
 color-secondary = #0E1720
 color-calm = #45C0FF
 
+font-size = 18px
+font-color = #000000
+
+color-input-border = #F8E71C
+
 .button
   cursor pointer
   display inline-block
@@ -40,3 +45,43 @@ color-calm = #45C0FF
   
 .f-r
   float right
+  
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: 5px 0;
+  font-size: font-size;
+  color: font-color;
+  border: none;
+  border-bottom: 1px solid color-input-border;
+}
+
+select:focus {
+  outline: none
+}
+
+.select-wrapper label 
+  display none
+
+.select-wrapper select 
+  appearance none
+  border-radius 0
+
+.select-wrapper {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  position: relative;
+    &:after {
+      position: absolute;
+      top: 0.75em;
+      right: 0.5em;
+      width: 0;
+      height: 0;
+      padding: 0;
+      content: '';
+      border-left: .25em solid transparent;
+      border-right: .25em solid transparent;
+      border-top: .375em solid color-input-border;
+      pointer-events: none;
+    }
+}

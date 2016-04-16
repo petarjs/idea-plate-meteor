@@ -6,4 +6,8 @@ if (Meteor.isServer) {
   Meteor.publish('categories', () => {
     return Categories.find({});
   })
+
+  Meteor.publish(null, function() {
+    return Categories.find({});
+  });
 }

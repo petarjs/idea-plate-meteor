@@ -3,4 +3,6 @@
   <img ng-src="{{ idea.idea.image }}">
   <strong class="title">{{ idea.idea.title }}</strong>
   <em>By {{ idea.idea.ideaOwner().emails[0].address }}</em>
+  <hr>
+  <em>Category: {{ idea.idea.ideaCategory().name }}</em>
 </div>

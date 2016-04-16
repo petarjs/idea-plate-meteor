@@ -6,6 +6,13 @@
     <image-upload></image-upload>
 
     <div class="fields">
+      <div class="select-wrapper">
+        <label>Category</label>
+        <select ng-model="create.idea.category">
+          <option value="" disabled selected>Choose the Category</option>
+          <option ng-repeat="cat in create.categories" value="{{ cat._id }}">{{ cat.name }}</option>
+        </select>
+      </div>
       <input class="title" type="text" ng-model="create.idea.title" placeholder="Title">
       <textarea class="description" rows="5" ng-model="create.idea.description" placeholder="Description"></textarea>
     </div>

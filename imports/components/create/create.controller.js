@@ -1,13 +1,22 @@
 import angularMeteor from 'angular-meteor';
 import { Ideas } from '../../api/ideas';
+import { Categories } from '../../api/categories';
 
 export class CreateController {
-  constructor($rootScope) {
+  constructor($rootScope, $scope, $reactive) {
     'ngInject';
 
     console.log('create')
 
     this.offImageChanged = $rootScope.$on('create-idea:image:changed', ($ev, base64) => this.setIdeaImage(base64));
+
+    $reactive(this).attach($scope);
+    this.subscribe('categories');
+    this.helpers({
+      categories() {
+        return Categories.find({});
+      }
+    });
   }
 
   createIdea(idea) {
