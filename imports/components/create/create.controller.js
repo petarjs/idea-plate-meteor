@@ -31,8 +31,8 @@ export class CreateController {
           align: 'right'
         });
       }
-      this.idea = {};
     });
+    this.idea = {};
   }
 
   setIdeaImage(base64) {
