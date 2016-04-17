@@ -1,0 +1,7 @@
+<div class="liked">
+  <h2>Liked Ideas</h2>
+  <input type="text" placeholder="Search for anything" ng-model="liked.q" class="search">
+  <div class="ideas">
+    <idea ng-repeat="idea in liked.likedIdeas | filter: liked.q" idea="idea"></idea>
+  </div>
+</div>

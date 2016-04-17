@@ -1,16 +1,16 @@
 import angularMeteor from 'angular-meteor';
 import { Ideas } from '../../api/ideas';
 
-export class FindController {
+export class LikedController {
   constructor($scope, $reactive) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
-    this.subscribe('ideas');
+    this.subscribe('likedIdeas');
 
     this.helpers({
-      ideas() {
+      likedIdeas() {
         return Ideas.find({});
       }
     });

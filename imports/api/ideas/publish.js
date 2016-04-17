@@ -6,4 +6,9 @@ if (Meteor.isServer) {
   Meteor.publish('ideas', () => {
     return Ideas.find({});
   })
+
+  Meteor.publish('likedIdeas', function() {
+    let liked = Meteor.users.findOne(this.userId).likedIdeas;
+    return Ideas.find({ _id: { $in: liked } });
+  })
 }
