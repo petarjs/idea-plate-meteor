@@ -1,3 +1,5 @@
+@import 'jeet'
+
 .idea
   display inline-block
   border-radius 8px
@@ -7,7 +9,7 @@
   position relative
   background #FFFFFF
   margin 20px 150px 60px 150px
-  
+
   .background-top
     border-radius 8px 8px 0 0
     position absolute
@@ -17,6 +19,62 @@
     height 180px
     background #45C0FF
     background-image url('/images/bulb-pattern.png')
+    
+  .wrapper
+    position absolute
+    height 100%
+    width 100%
+    z-index 1
+    text-align center
+    padding 30px
 
   .title
     text-transform capitalize
+  
+  .bulb-bubble
+    background-image url('/images/bulb-bubble.png')
+    display inline-block
+    width 50px
+    height 51px
+    position relative
+    z-index 2
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+  
+  .image-wrapper
+    .image
+      border-radius 50%
+      width 180px
+      height 180px
+      z-index 1
+      position relative
+      vertical-align: middle;
+      margin: 30px auto 10px auto
+      
+  .title
+    font-size 22px
+    margin-top 20px
+    
+  .meta
+    font-size 14px
+    color: #666
+    
+  .actions
+    cf()
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    overflow hidden
+    border-radius 0 0 8px 8px
+
+    button
+      span(1/2)
+      border 0
+      box-shadow none
+      background #F8E71C
+      padding 10px
+      font-size 18px
+      hover-darken()
