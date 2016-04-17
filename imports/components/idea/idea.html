@@ -1,11 +1,11 @@
 <div class="idea">
-  <div class="background-top"></div>
+  <div class="background-top" ng-style="idea.categoryColor"></div>
   <div class="wrapper">
     <div class="image-wrapper" ng-if="idea.idea.image">
       <img ng-src="{{ idea.idea.image }}" class="image">
     </div>
     <div class="title">{{ idea.idea.title }}</div>
-    <div class="blue-line"></div>
+    <div class="blue-line" ng-style="idea.categoryColor"></div>
     <p>{{ idea.idea.description }}</p>
     <div class="meta">
       <div class="author">{{ idea.idea.ideaOwner().emails[0].address }}</div>

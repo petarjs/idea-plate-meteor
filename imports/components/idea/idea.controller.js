@@ -9,6 +9,9 @@ export class IdeaController {
     this.helpers({
       alreadyLiked() {
         return Meteor.user() && Meteor.user().likedIdeas && Meteor.user().likedIdeas.indexOf(this.idea._id) !== -1
+      },
+      categoryColor() {
+        return { 'background-color': this.idea.ideaCategory().color }
       }
     });
   }

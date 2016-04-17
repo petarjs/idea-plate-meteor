@@ -16,8 +16,15 @@ export class CreateController {
     this.helpers({
       categories() {
         return Categories.find({});
-      }
+      },
     });
+  }
+
+  setCategoryColor() {
+    let c = Categories.findOne({ _id: this.idea.category });
+    if(c) {
+      this.categoryColor = { 'background-color': c.color };
+    }
   }
 
   createIdea(idea) {

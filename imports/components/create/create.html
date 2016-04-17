@@ -1,6 +1,6 @@
 <h3>Create your Idea</h3>
 <div class="idea">
-  <div class="background-top"></div>
+  <div class="background-top" ng-style="create.categoryColor"></div>
   <form ng-submit="create.createIdea(create.idea)" class="idea-create-form">
     
     <image-upload></image-upload>
@@ -8,7 +8,7 @@
     <div class="fields">
       <div class="select-wrapper">
         <label>Category</label>
-        <select ng-model="create.idea.category">
+        <select ng-model="create.idea.category" ng-change="create.setCategoryColor()">
           <option value="" disabled selected>Choose the Category</option>
           <option ng-repeat="cat in create.categories" value="{{ cat._id }}">{{ cat.name }}</option>
         </select>
