@@ -1,9 +1,19 @@
 import { Mongo } from 'meteor/mongo';
+import { _ } from 'lodash';
 
 export const Categories = new Mongo.Collection('categories');
 
 Categories.before.insert(function (userId, doc) {
   doc.createdAt = Date.now();
+  doc.slug = _.kebabCase(doc.name);
+});
+
+Categories.before.update(function (userId, doc, fields, modifier) {
+  modifier = {
+    $set: modifier.$set || {}
+  };
+  modifier.$set.modifiedAt = Date.now();
+  modifier.$set.slug = _.kebabCase(doc.name);
 });
 
 Categories.allow({
