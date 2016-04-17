@@ -8,7 +8,7 @@ if (Meteor.isServer) {
   })
 
   Meteor.publish('likedIdeas', function() {
-    let liked = Meteor.users.findOne(this.userId).likedIdeas;
+    let liked = this.userId ? Meteor.users.findOne(this.userId).likedIdeas : {};
     return Ideas.find({ _id: { $in: liked } });
   })
 }

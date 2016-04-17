@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
+import wuMasonry from 'angular-masonry';
+import il from 'imagesloaded';
 
 import { name as App } from '../imports/components/app';
 import { name as Navigation } from '../imports/components/navigation/navigation';
@@ -27,6 +29,7 @@ angular
     angularMeteor,
     uiRouter,
     'accounts.ui',
+    'wu.masonry',
 
     // Components
     App,
