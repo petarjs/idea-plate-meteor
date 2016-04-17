@@ -49,6 +49,11 @@ const IdeaSchema = new SimpleSchema({
     type: String,
     label: 'Image',
     optional: false
+  },
+  likes: {
+    type: Number,
+    label: 'Likes',
+    defaultValue: 0
   }
 });
 

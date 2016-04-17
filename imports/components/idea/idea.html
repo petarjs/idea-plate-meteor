@@ -10,11 +10,12 @@
     <div class="meta">
       <div class="author">{{ idea.idea.ideaOwner().emails[0].address }}</div>
       <a href="#" class="category">in {{ idea.idea.ideaCategory().name }}</a>
+      <div>Likes: {{idea.idea.likes}}</div>
     </div>
 
-    <div class="actions">
+    <div class="actions" ng-if="$root.currentUser">
       <button ng-if="idea.idea.ideaOwner()._id === $root.currentUser._id" ng-click="idea.removeIdea()">Delete</button>
-      <button ng-if="idea.idea.ideaOwner()._id !== $root.currentUser._id" ng-click="idea.removeIdea()">Like</button>
+      <button ng-if="idea.idea.ideaOwner()._id !== $root.currentUser._id" ng-click="idea.likeIdea()" ng-disabled="idea.alreadyLiked">{{ idea.alreadyLiked ? 'Liked' : 'Like' }}</button>
     </div>
   </div>
 </div>
