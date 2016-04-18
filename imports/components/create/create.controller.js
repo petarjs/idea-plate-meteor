@@ -34,6 +34,7 @@ export class CreateController {
     Meteor.call('idea:add', this.idea, (err, data) => {
       this.$timeout(() => {
         this.idea = {};
+        this.categoryColor = {};
         this.$rootScope.$emit('image-upload:image:reset');
       })
 
