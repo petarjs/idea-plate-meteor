@@ -19,6 +19,7 @@ import { name as ImageUpload } from '../imports/components/image-upload/image-up
 import { name as ColorPicker } from '../imports/components/color-picker/color-picker';
 import { name as ShowColor } from '../imports/components/show-color/show-color';
 import { name as Liked } from '../imports/components/liked/liked';
+import { name as UserProfile } from '../imports/components/user-profile/user-profile';
 
 import { name as Admin } from '../imports/components/admin/admin';
 import { name as AdminCategories } from '../imports/components/admin/categories/admin.categories';
@@ -53,6 +54,7 @@ angular
     ColorPicker,
     ShowColor,
     Liked,
+    UserProfile,
 
     Admin,
     AdminCategories,

@@ -2,9 +2,8 @@ export const Users = Meteor.users;
 
 Meteor.users.helpers({
   email() {
-    console.log(this.emails[0].address);
     return this.emails.length ? this.emails[0].address : '';
-  }
+  },
 });
 
 Users.before.insert(function (userId, doc) {

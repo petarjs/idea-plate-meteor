@@ -20,6 +20,10 @@ function follow(opts) {
   if(!opts.user) {
     throw new Meteor.Error(400, 'Missing user')
   }
+
+  if(opts.user._id === Meteor.userId()) {
+    throw new Meteor.Error(400, 'User cannot follow himself')
+  }
   
   Users.update({ _id: Meteor.userId() }, {
     $addToSet: {
