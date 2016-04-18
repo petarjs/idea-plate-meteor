@@ -10,6 +10,9 @@ hello, Admin
 
 <hr>
 Categories:
+<div>
+  <a ui-sref="app.find({ category: '' })">All</a>
+</div>
 <div ng-repeat="category in navigation.categories">
   <a ui-sref="app.find({ category: category.slug })">{{ category.name }}</a>
 </div>

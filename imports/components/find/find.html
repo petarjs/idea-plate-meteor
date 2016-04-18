@@ -4,9 +4,9 @@
     <h2>{{ find.categoryBySlug.name }} <small><em>{{ find.categoryBySlug.description }}</em></small></h2>
   </div>
   <input type="text" placeholder="Search for anything" ng-model="find.q" class="search">
-  <div class="ideas" masonry="{ gutter: 10, fitWidth: true }" reload-on-resize reload-on-show>
-    <div class="masonry-brick">
-      <idea ng-repeat="idea in find.ideas | filter: find.q" idea="idea"></idea>
+  <div class="ideas" masonry="{ transitionDuration: '0.2s', gutter: 10, fitWidth: true }" reload-on-resize reload-on-show>
+    <div class="masonry-brick" ng-repeat="idea in find.ideas track by idea._id | filter: find.q">
+      <idea idea="idea"></idea>
     </div>
   </div>
 </div>
