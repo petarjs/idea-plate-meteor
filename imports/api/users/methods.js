@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
  
 import { Users } from './collection';
+import { userFields } from './fields';
 
 function setIsAdmin(user, isAdmin) {
   if(!Meteor.user().isAdmin) {
@@ -15,6 +16,19 @@ function setIsAdmin(user, isAdmin) {
   })
 }
 
+function follow(opts) {
+  if(!opts.user) {
+    throw new Meteor.Error(400, 'Missing user')
+  }
+  
+  Users.update({ _id: Meteor.userId() }, {
+    $addToSet: {
+      following: opts.user._id
+    }
+  });
+}
+
 Meteor.methods({
-  'user:setIsAdmin': setIsAdmin
+  'user:setIsAdmin': setIsAdmin,
+  'user:follow': follow,
 });

@@ -1,0 +1,1 @@
+export const userFields = {fields: { emails: 1, profile: 1, isAdmin: 1, likedIdeas: 1, following: 1 }};

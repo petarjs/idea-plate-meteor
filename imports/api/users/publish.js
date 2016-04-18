@@ -1,12 +1,24 @@
 import { Meteor } from 'meteor/meteor';
  
 import { Users } from './collection';
-
-const userFields = {fields: {emails: 1, profile: 1, isAdmin: 1, likedIdeas: 1}};
+import { userFields } from './fields';
 
 if (Meteor.isServer) {
   Meteor.publish('admin:users', function() {
     const user = Users.findOne(this.userId);
     return Users.find({}, userFields);
+  })
+
+  Meteor.publish('users:all', () => {
+    return Meteor.users.find({}, userFields);
+  });
+
+  Meteor.publish('users:search', (q) => {
+    return Users.find({
+      'emails.0.address': {
+        $regex: `.*${q}.*`,
+        $options : 'i'
+      }
+    }, userFields)
   })
 }

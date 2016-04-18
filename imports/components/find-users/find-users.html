@@ -1,0 +1,8 @@
+<div class="find-users">
+  <h2>Find Users</h2>
+  <input type="text" placeholder="Search by Email" ng-model="findUsers.q" class="search" ng-change="findUsers.find(findUsers.q)">
+  <div ng-repeat="user in findUsers.users">
+    {{ user.emails[0].address }}
+    <button ng-if="$root.currentUser && $root.currentUser._id !== user._id" ng-click="findUsers.follow(user)">Follow</button>
+  </div>
+</div>
