@@ -16,6 +16,19 @@ function setIsAdmin(user, isAdmin) {
   })
 }
 
+function follow(opts) {
+  if(!opts.user) {
+    throw new Meteor.Error(400, 'Missing user')
+  }
+  
+  Users.update({ _id: Meteor.userId() }, {
+    $addToSet: {
+      following: opts.user._id
+    }
+  });
+}
+
 Meteor.methods({
-  'user:setIsAdmin': setIsAdmin
+  'user:setIsAdmin': setIsAdmin,
+  'user:follow': follow,
 });

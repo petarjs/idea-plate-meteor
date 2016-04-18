@@ -14,12 +14,6 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish('users:search', (q) => {
-    console.log(Users.find({
-      'emails.0.address': {
-        $regex: `.*${q}.*`,
-        $options : 'i'
-      }
-    }, userFields).fetch())
     return Users.find({
       'emails.0.address': {
         $regex: `.*${q}.*`,

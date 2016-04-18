@@ -19,6 +19,6 @@ function config($stateProvider) {
   $stateProvider
     .state('app.find-users', {
       url: '/find-users',
-      template: '<find-users></find-users>'
+      template: '<find-users></find-users>',
     });
 };

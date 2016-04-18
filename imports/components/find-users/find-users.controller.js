@@ -18,4 +18,10 @@ export class FindUsersController {
     })
   }
 
+  follow(user) {
+    Meteor.call('user:follow', {
+      user: user
+    })
+  }
+
 }
