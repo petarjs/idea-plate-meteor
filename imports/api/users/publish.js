@@ -4,6 +4,17 @@ import { Users } from './collection';
 import { userFields } from './fields';
 
 if (Meteor.isServer) {
+  // Publish Current User with additional fields
+  Meteor.publish(null, function() {
+    if (this.userId) {
+      return Meteor.users.find(
+        {_id: this.userId},
+        {fields: {username: 1, roles: 1, following: 1}});
+    } else {
+      return null;
+    }
+  });
+
   Meteor.publish('admin:users', function() {
     const user = Users.findOne(this.userId);
     return Users.find({}, userFields);

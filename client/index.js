@@ -3,6 +3,7 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import wuMasonry from 'angular-masonry';
 import il from 'imagesloaded';
+import { Accounts } from 'meteor/accounts-base';
 
 import { name as App } from '../imports/components/app';
 import { name as Navigation } from '../imports/components/navigation/navigation';
@@ -72,6 +73,10 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
 
 function run($rootScope, $state) {
   'ngInject';
+
+  Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_AND_EMAIL'
+  });
 
   MDSnackbars.init();
   
