@@ -3,12 +3,13 @@ import { Ideas } from '../../api/ideas';
 import { Categories } from '../../api/categories';
 
 export class CreateController {
-  constructor($rootScope, $scope, $reactive) {
+  constructor($rootScope, $scope, $reactive, $timeout) {
     'ngInject';
 
-    console.log('create')
+    this.$rootScope = $rootScope;
+    this.$timeout = $timeout;
 
-    this.offImageChanged = $rootScope.$on('create-idea:image:changed', ($ev, base64) => this.setIdeaImage(base64));
+    this.offImageChanged = $rootScope.$on('image-upload:image:changed', ($ev, base64) => this.setIdeaImage(base64));
     this.idea = {};
 
     $reactive(this).attach($scope);
@@ -30,6 +31,11 @@ export class CreateController {
   createIdea(idea) {
     console.log(this.idea);
     Meteor.call('idea:add', this.idea, (err, data) => {
+      this.$timeout(() => {
+        this.idea = {};
+        this.$rootScope.$emit('image-upload:image:reset');
+      })
+
       if(err) {
         MDSnackbars.show({
           text: err.reason,
@@ -39,7 +45,6 @@ export class CreateController {
         });
       }
     });
-    this.idea = {};
   }
 
   setIdeaImage(base64) {
