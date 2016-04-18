@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
  
 import { Users } from './collection';
+import { userFields } from './fields';
 
 function setIsAdmin(user, isAdmin) {
   if(!Meteor.user().isAdmin) {

@@ -10,6 +10,7 @@ import { name as Home } from '../imports/components/home/home';
 import { name as Layout } from '../imports/components/layout/layout';
 import { name as Create } from '../imports/components/create/create';
 import { name as Find } from '../imports/components/find/find';
+import { name as FindUsers } from '../imports/components/find-users/find-users';
 import { name as Idea } from '../imports/components/idea/idea';
 import { name as Category } from '../imports/components/category/category';
 import { name as User } from '../imports/components/user/user';
@@ -43,6 +44,7 @@ angular
     Home,
     Create,
     Find,
+    FindUsers,
     Idea,
     Category,
     User,
