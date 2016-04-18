@@ -7,3 +7,9 @@ hello, Admin
 <div>
   <login-buttons></login-buttons>
 </div>
+
+<hr>
+Categories:
+<div ng-repeat="category in navigation.categories">
+  <a ui-sref="app.find({ category: category.slug })">{{ category.name }}</a>
+</div>

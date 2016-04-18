@@ -5,7 +5,7 @@ export const Categories = new Mongo.Collection('categories');
 
 Categories.before.insert(function (userId, doc) {
   doc.createdAt = Date.now();
-  doc.slug = _.kebabCase(doc.name);
+  doc.slug = doc.slug || _.kebabCase(doc.name);
 });
 
 Categories.before.update(function (userId, doc, fields, modifier) {
@@ -13,7 +13,7 @@ Categories.before.update(function (userId, doc, fields, modifier) {
     $set: modifier.$set || {}
   };
   modifier.$set.modifiedAt = Date.now();
-  modifier.$set.slug = _.kebabCase(doc.name);
+  modifier.$set.slug = doc.slug || _.kebabCase(doc.name);
 });
 
 Categories.allow({

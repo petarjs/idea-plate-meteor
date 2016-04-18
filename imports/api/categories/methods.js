@@ -12,6 +12,7 @@ function addCategory(category) {
 }
 
 function updateCategory(id, category) {
+  console.log(category)
   Categories.update(id, category);
 }
 

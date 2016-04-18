@@ -7,7 +7,7 @@ if (Meteor.isServer) {
   Meteor.publish('ideas', (opts) => {
     let query = {};
     
-    if(opts) {
+    if(opts.category) {
       let categoryObj = Categories.findOne({ slug: opts.category })
       if(!categoryObj) {
         return Meteor.Error('category does not exist');
