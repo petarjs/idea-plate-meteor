@@ -3,11 +3,12 @@ import { Ideas } from '../../api/ideas';
 import { Categories } from '../../api/categories';
 
 export class CreateController {
-  constructor($rootScope, $scope, $reactive, $timeout) {
+  constructor($rootScope, $scope, $reactive, $timeout, Notification) {
     'ngInject';
 
     this.$rootScope = $rootScope;
     this.$timeout = $timeout;
+    this.Notification = Notification;
 
     this.offImageChanged = $rootScope.$on('image-upload:image:changed', ($ev, base64) => this.setIdeaImage(base64));
     this.idea = {};
@@ -36,14 +37,7 @@ export class CreateController {
         this.$rootScope.$emit('image-upload:image:reset');
       })
 
-      if(err) {
-        MDSnackbars.show({
-          text: err.reason,
-          animation: 'slideup',
-          toast: true,
-          align: 'right'
-        });
-      }
+      this.Notification.notify(err ? err.reason : 'Successfully created an Idea!');
     });
   }
 
