@@ -19,7 +19,10 @@ function config($stateProvider) {
   'ngInject';
   $stateProvider
     .state('app.find', {
-      url: '/find',
-      template: '<find></find>'
+      url: '/find/:category',
+      template: '<find></find>',
+      params: {
+        category: {value: null, squash: true}
+      }
     });
 };

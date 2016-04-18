@@ -1,5 +1,8 @@
 <div class="find">
-  <h2>Find Ideas</h2>
+  <h2 ng-if="!find.category">Find Ideas</h2>
+  <div ng-if="find.category">
+    <h2>{{ find.categoryBySlug.name }} <small><em>{{ find.categoryBySlug.description }}</em></small></h2>
+  </div>
   <input type="text" placeholder="Search for anything" ng-model="find.q" class="search">
   <div class="ideas" masonry="{ gutter: 10, fitWidth: true }" reload-on-resize reload-on-show>
     <div class="masonry-brick">

@@ -9,7 +9,8 @@
     <p>{{ idea.idea.description }}</p>
     <div class="meta">
       <div class="author">{{ idea.idea.ideaOwner().emails[0].address }}</div>
-      <a href="#" class="category">in {{ idea.idea.ideaCategory().name }}</a>
+      <a ui-sref="app.find({ category: idea.idea.ideaCategory().slug })" class="category">in {{ idea.idea.ideaCategory().name }}</a>
+      <div>on {{ idea.idea.createdAt | date }}</div>
       <div>Likes: {{idea.idea.likes}}</div>
     </div>
 
