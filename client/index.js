@@ -23,6 +23,8 @@ import { name as Admin } from '../imports/components/admin/admin';
 import { name as AdminCategories } from '../imports/components/admin/categories/admin.categories';
 import { name as AdminUsers } from '../imports/components/admin/users/admin.users';
 
+import { name as Notification } from '../imports/core/notification';
+
 angular
   .module('ideaPlate', [
     // Libs
@@ -30,6 +32,9 @@ angular
     uiRouter,
     'accounts.ui',
     'wu.masonry',
+
+    // Core
+    Notification,
 
     // Components
     App,

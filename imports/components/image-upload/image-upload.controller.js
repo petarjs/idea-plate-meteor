@@ -21,6 +21,8 @@ export class ImageUploadController {
         return this.draggingError;
       }
     });
+
+    this.offImageReset = this.$rootScope.$on('image-upload:image:reset', () => this.onImageReset())
   }
 
   $postLink() {
@@ -76,6 +78,14 @@ export class ImageUploadController {
   }
 
   notifyImageChange(base64) {
-    this.$rootScope.$emit('create-idea:image:changed', base64);
+    this.$rootScope.$emit('image-upload:image:changed', base64);
+  }
+
+  onImageReset() {
+    this.image = null;
+  }
+
+  $onDestroy() {
+    this.offImageReset();
   }
 }
