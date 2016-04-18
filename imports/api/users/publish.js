@@ -9,8 +9,4 @@ if (Meteor.isServer) {
     const user = Users.findOne(this.userId);
     return Users.find({}, userFields);
   })
-
-  Meteor.publish(null, function() {
-    return Meteor.users.find({}, userFields);
-  });
 }

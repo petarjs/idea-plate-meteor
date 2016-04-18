@@ -25,7 +25,7 @@ function config($stateProvider) {
       },
       resolve: {
         currentUser($q) {
-          if (!Meteor.userId()) {
+          if (!Meteor.userId() || !Meteor.user().isAdmin) {
             return $q.reject('ADMIN_REQUIRED');
           } else {
             return $q.resolve();
