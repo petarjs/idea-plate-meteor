@@ -17,7 +17,7 @@
     - [x] Show follow button only if not following
   - [ ] Create a profile page
     - [x] Show a list of user's followed users
-    - [ ] Show User's ideas
+    - [x] Show User's ideas
     - [ ] Show users activity
     - [ ] Show other stuff
 - [ ] User can see a feed of updates from the Users he's following
@@ -28,4 +28,9 @@
 ## Phase 2
 
 - [ ] Issues
+- [ ] Comments
+  - [ ] Mention users
+  - [ ] Display media links (image, video)
+- [ ] Markdown
+  - [ ] Markdown preview
 - [ ] Forking ideas

@@ -1,6 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users';
+import { Ideas } from '../../api/ideas';
 
 export class UserProfileController {
   constructor($scope, $reactive, $stateParams) {
@@ -12,13 +13,17 @@ export class UserProfileController {
     $reactive(this).attach($scope);
 
     this.subscribe('users:profile', () => [ this.$stateParams.user ]);
+    this.subscribe('ideas:byUser', () => [ this.$stateParams.user ]);
 
     this.helpers({
       user() {
         return Users.findOne({ _id: $stateParams.user });
       },
       following() {
-        return Users.find({ _id: { $in: this.getReactively('user').following || [] } })
+        return Users.find({ _id: { $in: (this.getReactively('user') || {}).following || [] } })
+      },
+      ideas() {
+        return Ideas.find({});
       }
     })
   }
