@@ -2,8 +2,10 @@ import angularMeteor from 'angular-meteor';
 import { Categories } from '../../../api/categories';
 
 export class AdminCategoriesController {
-  constructor($scope, $reactive, $rootScope) {
+  constructor($scope, $reactive, $rootScope, Notification) {
     'ngInject';
+
+    this.Notification = Notification;
 
     $reactive(this).attach($scope);
 
@@ -21,12 +23,18 @@ export class AdminCategoriesController {
   createCategory(category) {
     console.log(category);
     this.category.owner = Meteor.userId;
-    Meteor.call('category:add', category)
-    this.category = {};
+    Meteor.call('category:add', category, (err, data) => {
+      if(err) this.Notification.notify(err.reason);
+      if(!err) this.Notification.notify('Category created');
+      this.category = {};
+    })
   }
 
   saveCategory(category) {
-    Meteor.call('category:update', category._id, _.omit(category, '_id', '$$hashKey'));
+    Meteor.call('category:update', category._id, _.omit(category, '_id', '$$hashKey'), (err, data) => {
+      if(err) this.Notification.notify(err.reason);
+      if(!err) this.Notification.notify('Category saved');
+    });
   }
 
   onCategorySelected(ev, category) {

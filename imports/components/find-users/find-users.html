@@ -4,5 +4,6 @@
   <div ng-repeat="user in findUsers.users">
     <a ui-sref="app.userProfile({ user: user._id })">{{ user.emails[0].address }}</a>
     <button ng-if="findUsers.showFollowButton(user)" ng-click="findUsers.follow(user)">Follow</button>
+    <button ng-if="findUsers.showUnfollowButton(user)" ng-click="findUsers.unfollow(user)">Unfollow</button>
   </div>
 </div>

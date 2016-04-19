@@ -9,7 +9,7 @@ if (Meteor.isServer) {
     if (this.userId) {
       return Meteor.users.find(
         {_id: this.userId},
-        {fields: {username: 1, roles: 1, following: 1}});
+        userFields);
     } else {
       return null;
     }
