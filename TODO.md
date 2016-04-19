@@ -23,7 +23,9 @@
 - [ ] User can see a feed of updates from the Users he's following
 - [x] Bug - Anyone can make Users Admins
 - [x] Bug - When the Idea is created, the image is not reset
-- [ ] Add Toast notifications when stuff happens
+- [x] Add Toast notifications when stuff happens
+- [ ] Create My Account page
+  - [ ] User can edit his info
 
 ## Phase 2
 

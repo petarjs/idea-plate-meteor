@@ -1,0 +1,109 @@
+h2
+  font-size 30px
+  text-align center
+
+  strong
+    font-weight 400
+
+  span
+    font-weight 300
+    
+.join
+  font-size 18px
+  background color-grey
+  background-image url('/images/join-background.png')
+  background-size 100% auto
+  background-repeat no-repeat
+  background-position-x 100%
+  padding-bottom 120px
+
+  +below(1200px)
+    background-size auto 100%
+
+  .contain
+    padding-left 200px
+    padding-right 200px
+
+    +mobile()
+      padding 0 10px
+
+    +tablet()
+      text-align center
+
+    +between(400px, 600px)
+      padding 0 30px
+
+    +above(600px)
+      padding-left 100px
+      padding-right 100px
+
+  .box
+    col(1/2)
+    display inline-block
+    background color-light
+    box-shadow 0 6px 16px rgba(color-dark, 10%)
+    border-radius 0 0 4px 4px
+    padding 30px
+    max-width 500px
+    text-align left
+
+    +tablet()
+      width 100%
+      padding 20px
+      float none
+
+    +mobile()
+      width 100%
+      padding 20px
+
+    h2
+      font-size 44px
+      font-weight 100
+      margin 10px 0
+
+      strong
+        font-weight 400
+
+    .line-accent
+      height 10px
+      width 300px
+
+      +tablet()
+        width 100px
+
+      +mobile()
+        width 200px
+
+    .copy
+      font-size 20px
+      font-weight 300
+      margin-top 30px
+
+      p
+        margin 0 0 5px 0
+
+    .button-join
+      width 100%
+      padding-left 30px
+      padding-right 30px
+      margin-top 80px
+      font-size 28px
+      font-weight 400
+      text-align center
+
+      +mobile()
+        margin-top 40px
+
+  .image
+    col(1/2)
+    background transparent
+
+    +mobile()
+      display none
+    +tablet()
+      display none
+
+    img
+      width: 100%
+      height auto
+      margin-top 50px

@@ -5,6 +5,8 @@ export class NavigationController {
   constructor($scope, $reactive) {
     'ngInject';
 
+    this.showMenu = false;
+
     $reactive(this).attach($scope);
 
     this.subscribe('categories');
@@ -14,5 +16,9 @@ export class NavigationController {
         return Categories.find({});
       }
     });
+  }
+
+  toggleMenu() {
+    this.showMenu = !this.showMenu;
   }
 }

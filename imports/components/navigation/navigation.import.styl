@@ -1,0 +1,36 @@
+navigation
+  display inline-block
+  width 100%
+  
+  .menu-toggle
+    display none
+    cursor pointer
+    padding 10px
+
+    +mobile
+      display inline-block
+
+    +tablet
+      display none
+    +desktop
+      display none
+      
+  .menu
+    +tablet()
+      display block !important
+    +desktop()
+      display block !important
+
+    .menu-item
+      span(1/6)
+      text-align center
+      padding 25px
+      font-size 20px
+      height 80px
+
+      +mobile()
+        stack()
+
+      &:hover
+        background color-secondary
+        color color-main
