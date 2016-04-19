@@ -2,7 +2,8 @@
   <h2>Find Users</h2>
   <input type="text" placeholder="Search by Email" ng-model="findUsers.q" class="search" ng-change="findUsers.find(findUsers.q)">
   <div ng-repeat="user in findUsers.users">
-    {{ user.emails[0].address }}
-    <button ng-if="$root.currentUser && $root.currentUser._id !== user._id" ng-click="findUsers.follow(user)">Follow</button>
+    <a ui-sref="app.userProfile({ user: user._id })">{{ user.emails[0].address }}</a>
+    <button ng-if="findUsers.showFollowButton(user)" ng-click="findUsers.follow(user)">Follow</button>
+    <button ng-if="findUsers.showUnfollowButton(user)" ng-click="findUsers.unfollow(user)">Unfollow</button>
   </div>
 </div>

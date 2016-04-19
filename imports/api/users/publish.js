@@ -4,6 +4,17 @@ import { Users } from './collection';
 import { userFields } from './fields';
 
 if (Meteor.isServer) {
+  // Publish Current User with additional fields
+  Meteor.publish(null, function() {
+    if (this.userId) {
+      return Meteor.users.find(
+        {_id: this.userId},
+        userFields);
+    } else {
+      return null;
+    }
+  });
+
   Meteor.publish('admin:users', function() {
     const user = Users.findOne(this.userId);
     return Users.find({}, userFields);
@@ -21,4 +32,12 @@ if (Meteor.isServer) {
       }
     }, userFields)
   })
+
+  Meteor.publish('users:profile', (user) => {
+    let userObj = Users.findOne({ _id: user });
+    return Users.find({
+      _id: { $in: _.filter(userObj.following, Boolean).concat(userObj._id) }
+    }, userFields)
+  })
+
 }

@@ -3,6 +3,7 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import wuMasonry from 'angular-masonry';
 import il from 'imagesloaded';
+import { Accounts } from 'meteor/accounts-base';
 
 import { name as App } from '../imports/components/app';
 import { name as Navigation } from '../imports/components/navigation/navigation';
@@ -19,6 +20,7 @@ import { name as ImageUpload } from '../imports/components/image-upload/image-up
 import { name as ColorPicker } from '../imports/components/color-picker/color-picker';
 import { name as ShowColor } from '../imports/components/show-color/show-color';
 import { name as Liked } from '../imports/components/liked/liked';
+import { name as UserProfile } from '../imports/components/user-profile/user-profile';
 
 import { name as Admin } from '../imports/components/admin/admin';
 import { name as AdminCategories } from '../imports/components/admin/categories/admin.categories';
@@ -53,6 +55,7 @@ angular
     ColorPicker,
     ShowColor,
     Liked,
+    UserProfile,
 
     Admin,
     AdminCategories,
@@ -70,6 +73,10 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
 
 function run($rootScope, $state) {
   'ngInject';
+
+  Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_AND_EMAIL'
+  });
 
   MDSnackbars.init();
   

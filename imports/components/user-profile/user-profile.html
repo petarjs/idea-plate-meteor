@@ -1,0 +1,13 @@
+<div class="user-profile">
+  <h2>User - {{ userProfile.user.email() }}</h2>
+  
+  <div>
+    <a ui-sref="app.userProfile({ user: user._id })" ng-repeat="user in userProfile.following">{{ user.email() }}</a>
+  </div>
+  
+  <div class="ideas" masonry="{ transitionDuration: '0.2s', gutter: 10, fitWidth: true }" reload-on-resize reload-on-show>
+    <div class="masonry-brick" ng-repeat="idea in userProfile.ideas track by idea._id">
+      <idea idea="idea"></idea>
+    </div>
+  </div>
+</div>

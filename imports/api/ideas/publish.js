@@ -22,4 +22,8 @@ if (Meteor.isServer) {
     let liked = this.userId ? Meteor.users.findOne(this.userId).likedIdeas : {};
     return Ideas.find({ _id: { $in: liked } });
   })
+
+  Meteor.publish('ideas:byUser', function(user) {
+    return Ideas.find({ owner: user });
+  })
 }
