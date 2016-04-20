@@ -81,10 +81,6 @@ function run($rootScope, $state, $location) {
   console.log($state.current)
 
   MDSnackbars.init();
-  
-  $rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams, error) => {
-    console.log('$stateChangeSuccess', $state.current)
-  });
 
   $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
     if (error === 'AUTH_REQUIRED' || error === 'ADMIN_REQUIRED') {
