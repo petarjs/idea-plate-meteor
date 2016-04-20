@@ -27,6 +27,7 @@ import { name as AdminCategories } from '../imports/components/admin/categories/
 import { name as AdminUsers } from '../imports/components/admin/users/admin.users';
 
 import { name as Notification } from '../imports/core/notification';
+import { name as Iconate} from '../imports/core/iconate'
 
 angular
   .module('ideaPlate', [
@@ -38,6 +39,7 @@ angular
 
     // Core
     Notification,
+    Iconate,
 
     // Components
     App,
@@ -77,8 +79,6 @@ function run($rootScope, $state, $location) {
   Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_EMAIL'
   });
-
-  console.log($state.current)
 
   MDSnackbars.init();
 
