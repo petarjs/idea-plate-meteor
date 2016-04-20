@@ -10,22 +10,20 @@
   </div>
 
 </div>
-hello, Admin
 
-<a ui-sref="admin.categories">Categories</a>
-<a ui-sref="admin.users">Users</a>
-<a ui-sref="app.liked">Liked</a>
-<a ui-sref="app.find-users">Find Users</a>
-
-<div>
-  <login-buttons></login-buttons>
+<div class="spacer">
+  <div class="menu menu-l2" ng-show="navigation.showMenu">
+    <a class="menu-item" ng-if="$root.currentUser.isAdmin" ui-sref="admin.categories">Categories</a>
+    <a class="menu-item" ng-if="$root.currentUser.isAdmin" ui-sref="admin.users">Users</a>
+    <a class="menu-item" ng-if="$root.currentUser" ui-sref="app.liked">Liked</a>
+    <a class="menu-item" ui-sref="app.find-users">Find Users</a>
+  </div>
 </div>
 
-<hr>
-Categories:
-<div>
-  <a ui-sref="app.find({ category: '' })">All</a>
-</div>
-<div ng-repeat="category in navigation.categories">
-  <a ui-sref="app.find({ category: category.slug })">{{ category.name }}</a>
+<div class="spacer">
+  <div class="menu menu-l3" ng-show="navigation.showMenu">
+    <span class="menu-item">Categories:</span>
+    <a class="menu-item" ui-sref="app.find({ category: '' })">All</a>
+    <a class="menu-item" ng-repeat="category in navigation.categories" ui-sref="app.find({ category: category.slug })">{{ category.name }}</a>
+  </div>
 </div>

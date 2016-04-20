@@ -71,19 +71,24 @@ function config($locationProvider, $urlRouterProvider, $stateProvider) {
   $urlRouterProvider.otherwise('/');
 };
 
-function run($rootScope, $state) {
+function run($rootScope, $state, $location) {
   'ngInject';
 
   Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_EMAIL'
   });
 
+  console.log($state.current)
+
   MDSnackbars.init();
   
+  $rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams, error) => {
+    console.log('$stateChangeSuccess', $state.current)
+  });
+
   $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
-      if (error === 'AUTH_REQUIRED' || error === 'ADMIN_REQUIRED') {
-        $state.go('home');
-      }
+    if (error === 'AUTH_REQUIRED' || error === 'ADMIN_REQUIRED') {
+      $state.go('home');
     }
-  );
+  });
 }

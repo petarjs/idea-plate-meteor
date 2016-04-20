@@ -5,7 +5,7 @@ export class NavigationController {
   constructor($scope, $reactive) {
     'ngInject';
 
-    this.showMenu = false;
+    this.showMenu = true;
 
     $reactive(this).attach($scope);
 

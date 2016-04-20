@@ -25,11 +25,15 @@ function config($stateProvider) {
       },
       resolve: {
         currentUser($q) {
-          if (!Meteor.userId() || !Meteor.user().isAdmin) {
-            return $q.reject('ADMIN_REQUIRED');
-          } else {
-            return $q.resolve();
-          }
+          // ugly hack - because Meteor.user is not available immediately
+          setTimeout(() => {
+            let user = Meteor.user();
+            if (user && user.isAdmin) {
+              return $q.resolve();
+            } else {
+              return $q.reject('ADMIN_REQUIRED');
+            }
+          }, 100)
         }
       }
     });
