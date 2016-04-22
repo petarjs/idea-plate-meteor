@@ -15,8 +15,4 @@ export class AdminUsersController {
       }
     });
   }
-
-  cc() {
-    this.Iconate.morph('arrow-right', 'arrow-left')
-  }
 }

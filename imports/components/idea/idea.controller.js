@@ -1,10 +1,13 @@
 import angularMeteor from 'angular-meteor';
 
 export class IdeaController {
-  constructor($scope, $reactive, Notification) {
+  constructor($scope, $reactive, $timeout, Notification, Iconate) {
     'ngInject';
 
     this.Notification = Notification;
+    this.Iconate = Iconate;
+    this.$timeout = $timeout;
+
     $reactive(this).attach($scope);
 
     this.helpers({
@@ -25,14 +28,18 @@ export class IdeaController {
   }
 
   likeIdea() {
-    Meteor.call('idea:like', this.idea._id, (err, data) => {
+    let op = this.getReactively('alreadyLiked') ? 'idea:unlike' : 'idea:like';
+    Meteor.call(op, this.idea._id, (err, data) => {
       if(err) this.Notification.notify(err.reason);
-    });
-  }
-
-  unlikeIdea() {
-    Meteor.call('idea:unlike', this.idea._id, (err, data) => {
-      if(err) this.Notification.notify(err.reason);
+      if(!err) {
+        this.$timeout(() => {
+          if(op === 'idea:unlike') {
+            this.Iconate.morph('heart', 'heart-o')
+          } else {
+            this.Iconate.morph('heart-o', 'heart')
+          }
+        })
+      }
     });
   }
 }
