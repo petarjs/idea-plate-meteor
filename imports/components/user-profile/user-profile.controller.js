@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import { Users } from '../../api/users';
 import { Ideas } from '../../api/ideas';
+import { Feed } from '../../api/feed';
 
 export class UserProfileController {
   constructor($scope, $reactive, $stateParams) {
@@ -14,6 +15,7 @@ export class UserProfileController {
 
     this.subscribe('users:profile', () => [ this.$stateParams.user ]);
     this.subscribe('ideas:byUser', () => [ this.$stateParams.user ]);
+    this.subscribe('feed');
 
     this.helpers({
       user() {
@@ -24,6 +26,9 @@ export class UserProfileController {
       },
       ideas() {
         return Ideas.find({});
+      },
+      feed() {
+        return Feed.find({})
       }
     })
   }

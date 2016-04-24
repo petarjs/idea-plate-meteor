@@ -16,7 +16,7 @@
 
     <div class="actions" ng-if="$root.currentUser">
       <button ng-if="idea.idea.ideaOwner()._id === $root.currentUser._id" ng-click="idea.removeIdea()">Delete</button>
-      <button ng-if="idea.idea.ideaOwner()._id !== $root.currentUser._id" ng-click="idea.likeIdea()">
+      <button class="idea-like" ng-if="idea.idea.ideaOwner()._id !== $root.currentUser._id" ng-click="idea.likeIdea()">
         <i class="fa" ng-init="idea.alreadyLikedNonReactive = idea.alreadyLiked" ng-class="{'fa-heart-o': idea.alreadyLikedNonReactive, 'fa-heart': !idea.alreadyLikedNonReactive }"></i>
       </button>
     </div>

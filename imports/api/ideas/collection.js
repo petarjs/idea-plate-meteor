@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import { Categories } from '../categories'
+import { EventTypes } from '../feed/event-types'
 
 export const Ideas = new Mongo.Collection('ideas');
 
@@ -15,6 +16,14 @@ Ideas.helpers({
 Ideas.before.insert(function (userId, doc) {
   doc.createdAt = Date.now();
   doc.owner = Meteor.userId();
+});
+
+Ideas.after.insert(function (userId, doc) {
+  Meteor.call('feed:add', {
+    event: EventTypes.CREATED_IDEA,
+    user: Meteor.userId(),
+    target: this._id
+  })
 });
 
 Ideas.allow({

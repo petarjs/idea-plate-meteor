@@ -2,7 +2,15 @@
   <h2>User - {{ userProfile.user.email() }}</h2>
   
   <div>
+    <h4>Following</h4>
     <a ui-sref="app.userProfile({ user: user._id })" ng-repeat="user in userProfile.following">{{ user.email() }}</a>
+  </div>
+
+  <div>
+    <h4>Feed</h4>
+    <div ng-repeat="feedEvent in userProfile.feed">
+      {{ feedEvent.description }}
+    </div>
   </div>
   
   <div class="ideas" masonry="{ transitionDuration: '0.2s', gutter: 10, fitWidth: true }" reload-on-resize reload-on-show>
