@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
  
 import { Users } from './collection';
 import { userFields } from './fields';
+import { EventTypes } from '../feed/event-types'
 
 function setIsAdmin(user, isAdmin) {
   if(!Meteor.user().isAdmin) {
@@ -24,6 +25,12 @@ function follow(opts) {
   if(opts.user._id === Meteor.userId()) {
     throw new Meteor.Error(400, 'User cannot follow himself')
   }
+
+  Meteor.call('feed:add', {
+    event: EventTypes.FOLLOWED_USER,
+    user: Meteor.userId(),
+    target: opts.user._id
+  })
   
   Users.update({ _id: Meteor.userId() }, {
     $addToSet: {
