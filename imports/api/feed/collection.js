@@ -1,4 +1,6 @@
 import { Mongo } from 'meteor/mongo';
+import { EventTypes } from './event-types'
+import { EventDescriptions } from './event-descriptions'
 
 export const Feed = new Mongo.Collection('feed');
 
@@ -7,7 +9,9 @@ Feed.helpers({
 
 Feed.before.insert(function (userId, doc) {
   doc.createdAt = Date.now();
-  doc.description = 'User did something!!! This is a feed object!';
+  if(EventDescriptions[doc.event]) {
+    doc.description = EventDescriptions[doc.event].replace(':username', Meteor.user()._id);
+  }
 });
 
 Feed.allow({

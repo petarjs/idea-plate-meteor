@@ -12,7 +12,7 @@ if (Meteor.isServer) {
       query = {
         user: { $in: feedUsers }
       }
-      console.log(Feed.find(query).fetch(), query)
+
       return Feed.find(query);
     } else {
       return [];
