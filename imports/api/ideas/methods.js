@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
- 
+import { EventTypes } from '../feed/event-types'
 import { Ideas } from './collection';
 
 function removeIdea(idea) {
@@ -23,6 +23,12 @@ function likeIdea(id) {
   Meteor.users.update({ _id: Meteor.userId() }, {
     $addToSet: { likedIdeas: id }
   });
+
+  Meteor.call('feed:add', {
+    event: EventTypes.LIKED_IDEA,
+    user: Meteor.userId(),
+    target: id
+  })
 
   Ideas.update(id, { $inc: { likes: 1 } } );
 }
