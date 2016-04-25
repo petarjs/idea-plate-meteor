@@ -2,6 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import { EventTypes } from './event-types'
 import { EventDescriptions } from './event-descriptions'
 import { Ideas } from '../ideas';
+import { Users } from '../users';
 
 export const Feed = new Mongo.Collection('feed');
 
@@ -11,9 +12,15 @@ Feed.helpers({
 Feed.before.insert(function (userId, doc) {
   doc.createdAt = Date.now();
   if(EventDescriptions[doc.event]) {
-    doc.description = EventDescriptions[doc.event]
-      .replace(':username', Meteor.user()._id)
-      .replace(':idea', Ideas.findOne({ _id: doc.target }).title);
+    doc.description = EventDescriptions[doc.event].replace(':username', Meteor.user()._id);
+
+    if(doc.description.includes(':idea')) {
+      doc.description = doc.description.replace(':idea', Ideas.findOne({ _id: doc.target }).title);
+    }
+    
+    if(doc.description.includes(':followedUser')) {
+      doc.description = doc.description.replace(':followedUser', Users.findOne({ _id: doc.target })._id);
+    }
   }
 });
 
