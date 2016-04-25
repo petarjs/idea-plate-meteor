@@ -4,6 +4,12 @@ import { EventTypes } from '../feed/event-types'
 import { Ideas } from './collection';
 
 function removeIdea(idea) {
+  Meteor.call('feed:add', {
+    event: EventTypes.DELETED_IDEA,
+    user: Meteor.userId(),
+    target: idea._id
+  })
+
   Ideas.remove(idea._id);
 }
 
