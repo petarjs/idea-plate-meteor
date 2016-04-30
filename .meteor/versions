@@ -11,6 +11,8 @@ aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
 allow-deny@1.0.4
 angular-templates@1.0.2
+angular:angular@1.5.3_1
+angular:angular-sanitize@1.5.3_1
 autoupdate@1.2.9
 babel-compiler@6.6.4
 babel-runtime@0.1.8
@@ -84,7 +86,6 @@ routepolicy@1.0.10
 service-configuration@1.0.9
 session@1.1.5
 sha@1.0.7
-sjors:meteor-masonry@0.0.1
 spacebars@1.0.11
 spacebars-compiler@1.0.11
 srp@1.0.8

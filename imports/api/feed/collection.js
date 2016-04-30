@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import { EventTypes } from './event-types'
-import { EventDescriptions } from './event-descriptions'
+import { EventDescriptions, EventDescriptionsHtml } from './event-descriptions'
 import { Ideas } from '../ideas';
 import { Users } from '../users';
 
@@ -13,13 +13,18 @@ Feed.before.insert(function (userId, doc) {
   doc.createdAt = Date.now();
   if(EventDescriptions[doc.event]) {
     doc.description = EventDescriptions[doc.event].replace(':username', Meteor.user()._id);
+    doc.descriptionHtml = EventDescriptionsHtml[doc.event].replace(':username', Meteor.user()._id).replace(':userId', Meteor.userId());
 
     if(doc.description.includes(':idea')) {
       doc.description = doc.description.replace(':idea', Ideas.findOne({ _id: doc.target }).title);
+      doc.descriptionHtml = doc.descriptionHtml.replace(':idea', Ideas.findOne({ _id: doc.target }).title);
     }
     
     if(doc.description.includes(':followedUser')) {
-      doc.description = doc.description.replace(':followedUser', Users.findOne({ _id: doc.target })._id);
+      let followedUser = Users.findOne({ _id: doc.target });
+      doc.description = doc.description.replace(':followedUser', followedUser._id);
+      doc.descriptionHtml = doc.descriptionHtml.replace(':followedUserId', followedUser._id);
+      doc.descriptionHtml = doc.descriptionHtml.replace(':followedUser', followedUser._id);
     }
   }
 });

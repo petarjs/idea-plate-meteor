@@ -9,12 +9,12 @@
   <div>
     <h4>Feed</h4>
     <div ng-repeat="feedEvent in userProfile.feed">
-      {{ feedEvent.description }}
+      <span ng-bind-html="::userProfile.trustAsHtml(feedEvent.descriptionHtml)"></span>
     </div>
   </div>
   
-  <div class="ideas" masonry="{ transitionDuration: '0.2s', gutter: 10, fitWidth: true }" reload-on-resize reload-on-show>
-    <div class="masonry-brick" ng-repeat="idea in userProfile.ideas track by idea._id">
+  <div class="ideas">
+    <div ng-repeat="idea in userProfile.ideas track by idea._id">
       <idea idea="idea"></idea>
     </div>
   </div>

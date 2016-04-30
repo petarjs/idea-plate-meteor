@@ -32,9 +32,12 @@
   - [ ] Edit an idea
   - [ ] Delete an idea
 - [ ] User can see a feed of updates from the Users he's following
+- [ ] Create a Feed component, and do $sce stuff there
+- [ ] Paginate ideas and other collections
 
 ## Phase 2
 
+- [ ] Idea profile page
 - [ ] Issues
 - [ ] Comments
   - [ ] Mention users

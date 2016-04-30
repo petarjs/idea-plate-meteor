@@ -35,6 +35,11 @@ if (Meteor.isServer) {
 
   Meteor.publish('users:profile', (user) => {
     let userObj = Users.findOne({ _id: user });
+
+    if(!userObj) {
+      return;
+    }
+
     return Users.find({
       _id: { $in: _.filter(userObj.following, Boolean).concat(userObj._id) }
     }, userFields)

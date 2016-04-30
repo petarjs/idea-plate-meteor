@@ -1,8 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import wuMasonry from 'angular-masonry';
-import il from 'imagesloaded';
 import { Accounts } from 'meteor/accounts-base';
 
 import { name as App } from '../imports/components/app';
@@ -28,6 +26,7 @@ import { name as AdminUsers } from '../imports/components/admin/users/admin.user
 
 import { name as Notification } from '../imports/core/notification';
 import { name as Iconate} from '../imports/core/iconate'
+import { name as TrustHtml} from '../imports/core/trust-html'
 
 angular
   .module('ideaPlate', [
@@ -35,11 +34,12 @@ angular
     angularMeteor,
     uiRouter,
     'accounts.ui',
-    'wu.masonry',
+    'ngSanitize',
 
     // Core
     Notification,
     Iconate,
+    TrustHtml,
 
     // Components
     App,
