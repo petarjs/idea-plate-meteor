@@ -20,6 +20,7 @@ import { name as ShowColor } from '../imports/components/show-color/show-color';
 import { name as Liked } from '../imports/components/liked/liked';
 import { name as Feed } from '../imports/components/feed/feed';
 import { name as UserProfile } from '../imports/components/user-profile/user-profile';
+import { name as MyIdeas } from '../imports/components/my-ideas/my-ideas';
 
 import { name as Admin } from '../imports/components/admin/admin';
 import { name as AdminCategories } from '../imports/components/admin/categories/admin.categories';
@@ -60,6 +61,7 @@ angular
     Liked,
     Feed,
     UserProfile,
+    MyIdeas,
 
     Admin,
     AdminCategories,

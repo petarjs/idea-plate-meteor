@@ -1,0 +1,12 @@
+<div class="my-ideas">
+  <h2 ng-if="!myIdeas.category">My Ideas</h2>
+  <div ng-if="myIdeas.category">
+    <h2>{{ myIdeas.categoryBySlug.name }} <small><em>{{ myIdeas.categoryBySlug.description }}</em></small></h2>
+  </div>
+  <input type="text" placeholder="Search for anything" ng-model="myIdeas.q" class="search">
+  <div class="ideas">
+    <div ng-repeat="idea in myIdeas.ideas track by idea._id | filter: myIdeas.q">
+      <idea idea="idea"></idea>
+    </div>
+  </div>
+</div>
