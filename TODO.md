@@ -27,7 +27,7 @@
 - [x] My Ideas
   - [x] See a list of your ideas
   - [x] Delete an idea
-- [ ] Create a User component - image, email, number of ideas, follow 
+- [x] Create a User component - email, number of ideas, follow 
 
 ## Phase 2
 
