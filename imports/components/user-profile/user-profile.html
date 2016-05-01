@@ -9,7 +9,7 @@
   <div>
     <h4>Feed</h4>
     <div ng-repeat="feedEvent in userProfile.feed">
-      <span ng-bind-html="::userProfile.trustAsHtml(feedEvent.descriptionHtml)"></span>
+      <feed feed="feedEvent"></feed>
     </div>
   </div>
   

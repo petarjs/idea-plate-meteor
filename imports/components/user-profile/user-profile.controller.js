@@ -5,12 +5,11 @@ import { Ideas } from '../../api/ideas';
 import { Feed } from '../../api/feed';
 
 export class UserProfileController {
-  constructor($scope, $reactive, $stateParams, $scope, TrustHtml) {
+  constructor($scope, $reactive, $stateParams, $scope) {
     'ngInject';
 
     this.$stateParams = $stateParams;
     this.$scope = $scope;
-    this.TrustHtml = TrustHtml;
     this.user = Users.findOne({ _id: $stateParams.user });
 
     $reactive(this).attach($scope);
@@ -35,7 +34,5 @@ export class UserProfileController {
     })
   }
 
-  trustAsHtml(string) {
-    return this.TrustHtml.trustAsHtml(string, this.$scope);
-  }
+  
 }
