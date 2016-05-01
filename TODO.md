@@ -45,3 +45,5 @@
 - [ ] Create My Account page
   - [ ] User can edit his info
 - [ ] Paginate ideas and other collections - infinite load
+- [ ] Add picture to user component
+- [ ] Social logins

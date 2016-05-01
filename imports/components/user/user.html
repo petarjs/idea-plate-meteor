@@ -1,5 +1,9 @@
 <div class="user">
-  <strong>{{ user.user.email() }}</strong>
+  <a ui-sref="app.userProfile({ user: user.user._id })">{{ user.user.email() }}</a>
+  <span ng-if="!user.editMode">
+    <button ng-if="user.showFollowButton()" ng-click="user.follow()">Follow</button>
+    <button ng-if="user.showUnfollowButton()" ng-click="user.unfollow()">Unfollow</button>
+  </span>
   <span ng-if="user.editMode">
     <span ng-if="$root.currentUser._id !== user.user._id">
       <input type="checkbox" ng-model="user.user.isAdmin" ng-change="user.setIsAdmin(user.user)"> Is Admin

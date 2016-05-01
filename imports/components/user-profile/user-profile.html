@@ -3,7 +3,7 @@
   
   <div>
     <h4>Following</h4>
-    <a ui-sref="app.userProfile({ user: user._id })" ng-repeat="user in userProfile.following">{{ user.email() }}</a>
+    <user user="user" ng-repeat="user in userProfile.following"></user>
   </div>
 
   <div>
