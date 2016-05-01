@@ -1,6 +1,8 @@
 <div class="user">
-  <strong>{{ user.user.emails[0].address }}</strong>
-  <span ng-if="$root.currentUser._id !== user.user._id">
-    <input type="checkbox" ng-model="user.user.isAdmin" ng-change="user.setIsAdmin(user.user)">
+  <strong>{{ user.user.email() }}</strong>
+  <span ng-if="user.editMode">
+    <span ng-if="$root.currentUser._id !== user.user._id">
+      <input type="checkbox" ng-model="user.user.isAdmin" ng-change="user.setIsAdmin(user.user)"> Is Admin
+    </span>
   </span>
 </div>

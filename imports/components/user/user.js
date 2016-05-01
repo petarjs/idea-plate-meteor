@@ -13,7 +13,8 @@ export default angular.module(name, [
   templateUrl: `imports/components/${name}/${name}.html`,
   controllerAs: name,
   bindings: {
-    user: '<'
+    user: '<',
+    editMode: '='
   },
   controller: UserController
 });
