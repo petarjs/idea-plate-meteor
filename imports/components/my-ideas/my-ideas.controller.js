@@ -11,7 +11,7 @@ export class MyIdeasController {
 
     $reactive(this).attach($scope);
 
-    this.subscribe('ideas', angular.noop, { category: this.category });
+    this.subscribe('ideas:my', angular.noop, { category: this.category });
 
     this.helpers({
       ideas() {

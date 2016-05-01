@@ -15,7 +15,8 @@
   <div class="menu menu-l2" ng-show="navigation.showMenu">
     <a class="menu-item" ng-if="$root.currentUser.isAdmin" ui-sref="admin.categories">Categories</a>
     <a class="menu-item" ng-if="$root.currentUser.isAdmin" ui-sref="admin.users">Users</a>
-    <a class="menu-item" ng-if="$root.currentUser" ui-sref="app.liked">Liked</a>
+    <a class="menu-item" ng-if="$root.currentUser" ui-sref="app.liked">Liked Ideas</a>
+    <a class="menu-item" ng-if="$root.currentUser" ui-sref="app.myIdeas({ category: '' })">My Ideas</a>
     <a class="menu-item" ui-sref="app.find-users">Find Users</a>
   </div>
 </div>

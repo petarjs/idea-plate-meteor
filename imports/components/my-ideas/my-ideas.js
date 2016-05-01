@@ -18,7 +18,7 @@ export default angular.module(name, [
 function config($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('app.my-ideas', {
+    .state('app.myIdeas', {
       url: '/ideas/my/:category',
       template: '<my-ideas></my-ideas>',
       params: {
