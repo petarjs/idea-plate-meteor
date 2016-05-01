@@ -45,7 +45,7 @@ export class UserController {
 
     let isLoggedIn = !!this.$rootScope.currentUser;
     let isCurrentUser = this.$rootScope.currentUser._id === this.user._id;
-    let alreadyFollowed = isLoggedIn && _.isArray(this.$rootScope.currentUser.following) && this.$rootScope.currentUser.following.indexOf(this.user._id) !== -1;
+    let alreadyFollowed = isLoggedIn && this.$rootScope.currentUser.isFollowing(this.user);
     return isLoggedIn && !isCurrentUser && !alreadyFollowed;
   }
 
@@ -56,7 +56,7 @@ export class UserController {
 
     let isLoggedIn = !!this.$rootScope.currentUser;
     let isCurrentUser = this.$rootScope.currentUser._id === this.user._id;
-    let alreadyFollowed = isLoggedIn && _.isArray(this.$rootScope.currentUser.following) && this.$rootScope.currentUser.following.indexOf(this.user._id) !== -1;
+    let alreadyFollowed = isLoggedIn && this.$rootScope.currentUser.isFollowing(this.user);
     return isLoggedIn && !isCurrentUser && alreadyFollowed;
   }
 }
