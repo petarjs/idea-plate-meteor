@@ -24,19 +24,16 @@
   - [x] Show users activity
 - [x] User can see a feed of updates from the Users he's following
 - [x] Create a Feed component, and do $sce stuff there
-- [ ] Create My Account page
-  - [ ] User can edit his info
-- [ ] My Ideas
-  - [ ] See a list of your ideas
-  - [ ] Edit an idea
-  - [ ] Delete an idea
+- [x] My Ideas
+  - [x] See a list of your ideas
+  - [x] Delete an idea
 - [ ] Create a User component - image, email, number of ideas, follow 
-- [ ] Paginate ideas and other collections
 
 ## Phase 2
 
 - [ ] Idea profile page
   - [ ] add a link to /idea/:id on feed descriptionHtml
+  - [ ] Edit an idea
 - [ ] Issues
 - [ ] Comments
   - [ ] Mention users
@@ -45,3 +42,8 @@
   - [ ] Markdown preview
 - [ ] Forking ideas
 - [ ] Make idea photos upload as file, not as base 64
+- [ ] Create My Account page
+  - [ ] User can edit his info
+- [ ] Paginate ideas and other collections - infinite load
+- [ ] Add picture to user component
+- [ ] Social logins

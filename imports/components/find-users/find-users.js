@@ -18,7 +18,7 @@ function config($stateProvider) {
   'ngInject';
   $stateProvider
     .state('app.find-users', {
-      url: '/find-users',
+      url: '/users/find',
       template: '<find-users></find-users>',
     });
 };

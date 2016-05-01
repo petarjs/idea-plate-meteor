@@ -4,6 +4,9 @@ Meteor.users.helpers({
   email() {
     return this.emails.length ? this.emails[0].address : '';
   },
+  isFollowing(user) {
+    return _.isArray(this.following) && this.following.indexOf(user._id) !== -1;
+  },
 });
 
 Users.before.insert(function (userId, doc) {
