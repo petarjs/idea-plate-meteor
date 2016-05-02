@@ -47,3 +47,4 @@
 - [ ] Paginate ideas and other collections - infinite load
 - [ ] Add picture to user component
 - [ ] Social logins
+- [ ] Layout and styles, copy, other pages
