@@ -14,8 +14,6 @@
   </div>
   
   <div class="ideas">
-    <div ng-repeat="idea in userProfile.ideas track by idea._id">
-      <idea idea="idea"></idea>
-    </div>
+    <idea ng-repeat="idea in userProfile.ideas track by idea._id" idea="idea"></idea>
   </div>
 </div>

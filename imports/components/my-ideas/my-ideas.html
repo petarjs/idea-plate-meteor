@@ -5,8 +5,6 @@
   </div>
   <input type="text" placeholder="Search for anything" ng-model="myIdeas.q" class="search">
   <div class="ideas">
-    <div ng-repeat="idea in myIdeas.ideas track by idea._id | filter: myIdeas.q">
-      <idea idea="idea"></idea>
-    </div>
+    <idea ng-repeat="idea in myIdeas.ideas track by idea._id | filter: myIdeas.q" idea="idea"></idea>
   </div>
 </div>
