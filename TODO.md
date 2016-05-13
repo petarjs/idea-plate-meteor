@@ -28,6 +28,8 @@
   - [x] See a list of your ideas
   - [x] Delete an idea
 - [x] Create a User component - email, number of ideas, follow 
+- [ ] UI
+- [ ] Like Bug
 
 ## Phase 2
 
@@ -41,6 +43,7 @@
 - [ ] Markdown
   - [ ] Markdown preview
 - [ ] Forking ideas
+  - You don't get issues and likes
 - [ ] Make idea photos upload as file, not as base 64
 - [ ] Create My Account page
   - [ ] User can edit his info
