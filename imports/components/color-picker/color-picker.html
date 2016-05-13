@@ -1,4 +1,6 @@
 <div class="color-picker">
   <input type="text" ng-model="colorPicker.color" placeholder="Color (#FFFFFF)">
-  <div class="color" ng-style="{'background-color': colorPicker.color}"></div>
+  <div class="color" ng-style="{'background-color': colorPicker.color}">
+    <i ng-if="!colorPicker.color" class="fa fa-ban"></i>
+  </div>
 </div>

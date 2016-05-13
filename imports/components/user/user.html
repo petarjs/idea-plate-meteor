@@ -3,8 +3,8 @@
     <a class="user__email" ui-sref="app.userProfile({ user: user.user._id })">{{ user.user.email() }}</a>
   </div>
   <span ng-if="!user.editMode" class="user__follow">
-    <button class="button" ng-if="user.showFollowButton()" ng-click="user.follow()">Follow</button>
-    <button class="button" ng-if="user.showUnfollowButton()" ng-click="user.unfollow()">Unfollow</button>
+    <button class="button button-small" ng-if="user.showFollowButton()" ng-click="user.follow()">Follow</button>
+    <button class="button button-small" ng-if="user.showUnfollowButton()" ng-click="user.unfollow()">Unfollow</button>
   </span>
   <span ng-if="user.editMode" class="user__edit">
     <span ng-if="$root.currentUser._id !== user.user._id">

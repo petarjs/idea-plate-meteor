@@ -2,26 +2,37 @@
   <div class="create">
     <h3>Manage Categories</h3>
 
-    <form ng-submit="adminCategories.createCategory(adminCategories.category)">
-      
-      <label>
-        Name
-        <input type="text" ng-model="adminCategories.category.name">
+    <form class="create__form" ng-submit="adminCategories.createCategory(adminCategories.category)">
+      <h3>Create a new Category</h3>
+
+      <label class="field">
+        <span class="field__title">Name</span>
+        <span class="field__input">
+          <input type="text" ng-model="adminCategories.category.name">
+        </span>
       </label>
       
-      <label>
-        Description
-        <input type="text" ng-model="adminCategories.category.description">
+      <label class="field">
+        <span class="field__title">Description</span>
+        <span class="field__input">
+          <input type="text" ng-model="adminCategories.category.description">
+        </span>
       </label>
       
-      <label>
-        Slug
-        <input type="text" ng-model="adminCategories.category.slug">
+      <label class="field">
+        <span class="field__title">Slug</span>
+        <span class="field__input">
+          <input type="text" ng-model="adminCategories.category.slug">
+        </span>
       </label>
 
-      <color-picker color="adminCategories.category.color"></color-picker>
-
-      <button>Create</button>
+      <div class="ta-r">
+        <color-picker color="adminCategories.category.color"></color-picker>
+      </div>
+      
+      <div class="ta-r">
+        <button class="button button--small button--inline">Create</button>
+      </div>
     </form>
 
     <div>
