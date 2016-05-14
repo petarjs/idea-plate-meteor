@@ -1,8 +1,7 @@
 <div class="admin-categories contain">
+  <h3>Manage Categories</h3>
   <div class="create">
-    <h3>Manage Categories</h3>
-
-    <form class="create__form" ng-submit="adminCategories.createCategory(adminCategories.category)">
+    <form class="create__form box" ng-submit="adminCategories.createCategory(adminCategories.category)">
       <h3>Create a new Category</h3>
 
       <label class="field">
@@ -29,7 +28,7 @@
       <div class="ta-r">
         <color-picker color="adminCategories.category.color"></color-picker>
       </div>
-      
+
       <div class="ta-r">
         <button class="button button--small button--inline">Create</button>
       </div>
@@ -41,28 +40,37 @@
   </div>
 
   <div class="current">
-    <form ng-if="adminCategories.selectedCategory" ng-submit="adminCategories.saveCategory(adminCategories.selectedCategory)">
-      Edit
-      <br>
+    <form class="create__form-edit box" ng-if="adminCategories.selectedCategory" ng-submit="adminCategories.saveCategory(adminCategories.selectedCategory)">
+      <h3>Edit Category</h3>
 
-      <label>
-        Name:
-        <input type="text" ng-model="adminCategories.selectedCategory.name">
+      <label class="field">
+        <span class="field__title">Name:</span>
+        <span class="field__input">
+          <input type="text" ng-model="adminCategories.selectedCategory.name">
+        </span>
       </label>
 
-      <label>
-        Description:
-        <input type="text" ng-model="adminCategories.selectedCategory.description">
+      <label class="field">
+        <span class="field__title">Description:</span>
+        <span class="field__input">
+          <input type="text" ng-model="adminCategories.selectedCategory.description">
+        </span>
       </label>
 
-      <label>
-        Slug
-        <input type="text" ng-model="adminCategories.selectedCategory.slug">
+      <label class="field">
+        <span class="field__title">Slug</span>
+        <span class="field__input">
+          <input type="text" ng-model="adminCategories.selectedCategory.slug">
+        </span>
       </label>
-
-      <color-picker color="adminCategories.selectedCategory.color"></color-picker>
-
-      <button>Save</button>
+      
+      <div class="ta-r">
+        <color-picker color="adminCategories.selectedCategory.color"></color-picker>
+      </div>
+      
+      <div class="ta-r">
+        <button class="button button--small button--inline">Save</button>
+      </div>
     </form>
   </div>
 </div>
