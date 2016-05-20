@@ -20,11 +20,3 @@
     <a class="menu-item" ui-sref="app.find-users">Find Users</a>
   </div>
 </div>
-
-<div class="spacer">
-  <div class="menu menu-l3" ng-show="navigation.showMenu">
-    <span class="menu-item">Categories:</span>
-    <a class="menu-item" ui-sref="app.find({ category: '' })">All</a>
-    <a class="menu-item" ng-repeat="category in navigation.categories" ui-sref="app.find({ category: category.slug })">{{ category.name }}</a>
-  </div>
-</div>
