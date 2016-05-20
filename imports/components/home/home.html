@@ -18,6 +18,28 @@
   </div>
 </div>
 
+<div class="explore">
+  <div class="spacer">
+    <h2>
+      <strong>Explore Ideas</strong>
+    </h2>
+  </div>
+
+  <div class="contain">
+    <div class="explore__category explore__category--all" ui-sref="app.find({ category: '' })">
+      <div class="category__icon"><i class="fa fa-globe"></i></div>
+      <div class="category__title">All</div>
+    </div>
+
+    <div class="explore__category" ng-repeat="category in home.categories" ui-sref="app.find({ category: category.slug })" ng-style="{ 'background-color': category.color }">
+      <div class="category__icon">
+        <show-icon icon="category.icon"></show-icon>
+      </div>
+      <div class="category__title">{{ category.name }}</div>
+    </div>
+  </div>
+</div>
+
 <div class="spacer">
   <h2>
     <strong>Open Source <span>your Ideas</span></strong>
