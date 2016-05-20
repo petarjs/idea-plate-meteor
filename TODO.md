@@ -29,9 +29,9 @@
   - [x] Delete an idea
 - [x] Create a User component - email, number of ideas, follow 
 - [x] Categories have icons
+- [ ] Like Bug
 - [ ] UI
   - [ ] fix login ui
-- [ ] Like Bug
 
 ## Phase 2
 
