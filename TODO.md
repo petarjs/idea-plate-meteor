@@ -28,6 +28,7 @@
   - [x] See a list of your ideas
   - [x] Delete an idea
 - [x] Create a User component - email, number of ideas, follow 
+- [x] Categories have icons
 - [ ] UI
   - [ ] fix login ui
 - [ ] Like Bug
