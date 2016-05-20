@@ -16,6 +16,7 @@ import { name as User } from '../imports/components/user/user';
 import { name as HeaderSmall } from '../imports/components/header-small/header-small';
 import { name as ImageUpload } from '../imports/components/image-upload/image-upload';
 import { name as ColorPicker } from '../imports/components/color-picker/color-picker';
+import { name as IconPicker } from '../imports/components/icon-picker/icon-picker';
 import { name as ShowColor } from '../imports/components/show-color/show-color';
 import { name as Liked } from '../imports/components/liked/liked';
 import { name as Feed } from '../imports/components/feed/feed';
@@ -57,6 +58,7 @@ angular
     HeaderSmall,
     ImageUpload,
     ColorPicker,
+    IconPicker,
     ShowColor,
     Liked,
     Feed,

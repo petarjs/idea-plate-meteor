@@ -1,0 +1,7 @@
+<div class="icon-picker">
+  <input type="text" ng-model="iconPicker.icon" placeholder="Icon (e.g. fa-heart)">
+  <div class="icon">
+    <i ng-if="!iconPicker.icon" class="fa fa-ban"></i>
+    <i ng-if="iconPicker.icon" ng-class="['fa', iconPicker.icon]"></i>
+  </div>
+</div>
