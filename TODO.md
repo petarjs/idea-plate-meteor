@@ -29,6 +29,7 @@
   - [x] Delete an idea
 - [x] Create a User component - email, number of ideas, follow 
 - [ ] UI
+  - [ ] fix login ui
 - [ ] Like Bug
 
 ## Phase 2
@@ -44,7 +45,7 @@
   - [ ] Markdown preview
 - [ ] Forking ideas
   - You don't get issues and likes
-- [ ] Make idea photos upload as file, not as base 64
+- [ ] Make idea photos upload as a file, not as base 64
 - [ ] Create My Account page
   - [ ] User can edit his info
 - [ ] Paginate ideas and other collections - infinite load
